@@ -7,7 +7,8 @@ const token = process.env.GITHUB_TOKEN;
 
 // this function hits the GH API to find out how many projects use the truffle-config file
 // running this in your terminal only returns 100 records at a time, so there can definitely
-// be some fine-grained work here to get all the records and/or add more specific search terms
+// be some fine-grained work here to get all the records via pagination
+// and/or add more specific search terms
 async function searchProjects(fileName) {
   const query = fileName + ' in:file';
   const url = `https://api.github.com/search/code?q=${query}`;
